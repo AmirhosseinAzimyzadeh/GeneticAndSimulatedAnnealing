@@ -65,7 +65,9 @@ def next_generation(population, fitness_array, mutation_prob):
     for i in range(int(len_of_pop / 2)):
         ind1 = find_max(population, fitness_array)
         ind2 = find_max(population, fitness_array)
-        next_gen.append(child_creator(ind1, ind2, mutation_prob))
+        children = child_creator(ind1, ind2, mutation_prob)
+        next_gen.insert(0, children[0])
+        next_gen.insert(0, children[1])
     return next_gen
 
 
@@ -92,15 +94,17 @@ def print_prob(prob_array):
 
 
 # ------------------------------------------------------------------------
+def genetic_al(n_generation, n_population, mutation_prob):
+    population = first_generation(n_population)
+    fit_array = fitness(population)
+    for i in range(n_generation):
+        population = next_generation(population, fit_array, mutation_prob)
+        fit_array = fitness(population)
+    return find_max(population, fit_array).f
 
-print(f(-5, -6))
+
 number_of_generation = int(input('number of generation :'))
 number_of_population = int(input('number of population :'))
-print('___________')
-first_gen = first_generation(number_of_population)
-fitness_arr = fitness(first_gen)
-print_prob(fitness_arr)
-print('_________')
-print(find_max(first_gen, fitness_arr).f)
-print('_________')
-print_prob(fitness_arr)
+mutation_prob = float(input('mutation prob:'))
+
+print(genetic_al(number_of_generation, number_of_population, mutation_prob))
