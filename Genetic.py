@@ -33,13 +33,11 @@ def first_generation(n_of_population):  # return first generation
 
 
 def child_creator(parent1, parent2, mutation_prob):
-    mutation_prob = 0.1
+    if mutation_prob == -1:
+        mutation_prob = 0.1
+    else:
+        mutation_prob = mutation_prob
     x_from_parent1 = (random.uniform(-1, 1) < 0)
-    child1_x = 0
-    child1_y = 0
-    child2_x = 0
-    child2_x = 0
-
     if x_from_parent1:
         child1_x = parent1.x
         child1_y = parent2.y
@@ -61,6 +59,27 @@ def child_creator(parent1, parent2, mutation_prob):
     return [child1, child2]
 
 
+def next_generation(population, fitness_array, mutation_prob):
+    next_gen = []
+    len_of_pop = len(population)
+    for i in range(int(len_of_pop / 2)):
+        ind1 = find_max(population, fitness_array)
+        ind2 = find_max(population, fitness_array)
+        next_gen.append(child_creator(ind1, ind2, mutation_prob))
+    return next_gen
+
+
+def find_max(population, fitness_array):
+    max_fit = -math.inf
+    max_index = -1
+    for i in range(len(fitness_array)):
+        if fitness_array[i] > max_fit:
+            max_fit = fitness_array[i]
+            max_index = i
+    fitness_array.pop(max_index)
+    return population.pop(max_index)
+
+
 # -------------------------- print functions ----------------------------
 def print_population(population):
     for i in range(len(population)):
@@ -77,6 +96,11 @@ def print_prob(prob_array):
 print(f(-5, -6))
 number_of_generation = int(input('number of generation :'))
 number_of_population = int(input('number of population :'))
-print_population(child_creator(Individual(-6, 5), Individual(-10, 1), 0.1))
 print('___________')
-print_prob(fitness(first_generation(number_of_population)))
+first_gen = first_generation(number_of_population)
+fitness_arr = fitness(first_gen)
+print_prob(fitness_arr)
+print('_________')
+print(find_max(first_gen, fitness_arr).f)
+print('_________')
+print_prob(fitness_arr)
