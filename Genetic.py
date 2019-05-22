@@ -1,3 +1,5 @@
+""" Amirhossein Azimyzadeh Spring 2019 """
+
 import math
 import random
 
@@ -29,7 +31,7 @@ def f(x, y):
 
 
 def first_generation(n_of_population):  # return first generation
-    return [Individual(random.uniform(-10, 10), random.uniform(-10, 10)) for p in range(n_of_population)]
+    return [Individual(random.uniform(-100, 100), random.uniform(-100, 100)) for p in range(n_of_population)]
 
 
 def child_creator(parent1, parent2, mutation_prob):
@@ -94,11 +96,11 @@ def print_prob(prob_array):
 
 
 # ------------------------------------------------------------------------
-def genetic_al(n_generation, n_population, mutation_prob):
+def genetic_al(n_generation, n_population, mutation):
     population = first_generation(n_population)
     fit_array = fitness(population)
     for i in range(n_generation):
-        population = next_generation(population, fit_array, mutation_prob)
+        population = next_generation(population, fit_array, mutation)
         fit_array = fitness(population)
     return find_max(population, fit_array).f
 
