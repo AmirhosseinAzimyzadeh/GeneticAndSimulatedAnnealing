@@ -20,6 +20,7 @@ def fitness(population):
     return [(p.f / sum_of_values) * 100 for p in population]
 
 
+# ----------------------------------CROSS IN TRAY FUNCTION-----------------------
 def f(x, y):
     x = float(x)
     y = float(y)
@@ -28,6 +29,9 @@ def f(x, y):
     inside = math.fabs(math.sin(x) * math.sin(y) * expo) + 1
     result = (-0.0001) * math.pow(inside, 0.1)
     return result
+
+
+# -------------------------------------------------------------------------------
 
 
 def first_generation(n_of_population):  # return first generation
