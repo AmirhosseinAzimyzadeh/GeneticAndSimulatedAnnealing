@@ -1,5 +1,5 @@
 # GeneticAndSimulatedAnnealing
-genetic and simulated annealing use to Optimization Cross-in-Tray function <br>
+genetic and simulated annealing to Optimization Cross-in-Tray function <br>
 more information about Cross-In-Tray function : [click here](https://www.sfu.ca/~ssurjano/crossit.html)<br>
 ![Alt Tex](https://www.sfu.ca/~ssurjano/crossit.png) <br>
 ![Alt Tex](https://www.sfu.ca/~ssurjano/crossit2.png)<br>
