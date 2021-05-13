@@ -1,12 +1,12 @@
 # GeneticAndSimulatedAnnealing
-genetic and simulated annealing to Optimization Cross-in-Tray function <br>
+In this repo, genetic and simulated annealing are used to optimize the Cross-in-Tray function <br>
 more information about Cross-In-Tray function : [click here](https://www.sfu.ca/~ssurjano/crossit.html)<br>
 ![Alt Tex](https://www.sfu.ca/~ssurjano/crossit.png) <br>
 ![Alt Tex](https://www.sfu.ca/~ssurjano/crossit2.png)<br>
 © pictures from SFU - ca
 ## Genetic Algorithm
-each individual contains two Chromosome, x and y <br>
-x and y for first generation creat in range (-100,100) randomly<br>
-Cross-In-Tray function always return negative value so fitness function for each individual : <br>
+Each individual contains two chromosomes (x and y)
+x and y for the first-generation are created randomly
+The cross-In-Tray function always returns a negative value so the fitness function for each individual is :
 fitness(Ind) = value of(Ind)/ sum of all population values
-## simulated Annealing
+## Simulated Annealing
